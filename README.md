@@ -14,9 +14,32 @@ Bell Cloud 是 [Bell Memo](https://github.com/yourname/bell-memo) 的官方服�
 
 ## 🚀 快速部署
 
-推荐使用 Docker Compose 配合初始化脚本一键部署。
+### 方式一：一键安装（推荐）
 
-### 1. 启动服务与初始化
+使用以下命令一键安装并初始化 Bell Cloud：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/BellMemo/bell-cloud/main/install.sh | bash
+```
+
+或者指定安装目录：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/BellMemo/bell-cloud/main/install.sh | bash -s my-bell-cloud
+```
+
+安装脚本会自动：
+- 检查 Docker 和 Docker Compose 是否已安装
+- 创建项目目录并生成配置文件
+- 提示你运行初始化脚本
+
+---
+
+### 方式二：手动部署
+
+如果你已经克隆了仓库，可以手动部署：
+
+#### 1. 启动服务与初始化
 
 我们提供了一个脚本 `init.sh`，它可以自动启动 Docker 容器、设置随机密码、并自动挂载存储目录。
 
@@ -33,9 +56,9 @@ chmod +x init.sh
 *   管理员账号 (`admin`)
 *   自动生成的**管理员密码**（请妥善保存）
 
-### 2. 手动部署（可选）
+#### 2. 手动操作（可选）
 
-如果你不想使用脚本，也可以手动操作：
+如果你不想使用自动化脚本，也可以手动操作：
 
 1.  **启动容器**：
     ```bash
