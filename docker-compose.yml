@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  bell-cloud:
+    image: 'xhofe/alist:latest'
+    container_name: bell-cloud
+    restart: always
+    volumes:
+      - './data:/opt/alist/data'        # Alist 系统配置和数据库
+      - './storage:/mnt/local'          # 【重要】本地存储挂载点，对应 Alist 中的 /mnt/local
+    ports:
+      - '5244:5244'
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
+

@@ -1,0 +1,5 @@
+# Alist data and storage
+data/
+storage/
+.DS_Store
+
