@@ -62,7 +62,7 @@ chmod +x init.sh
 
 1.  **启动容器**：
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
 2.  **查看/设置密码**：
     ```bash

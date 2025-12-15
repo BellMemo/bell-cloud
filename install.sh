@@ -25,7 +25,8 @@ if ! command -v docker &> /dev/null; then
     exit 1
 fi
 
-if ! command -v docker-compose &> /dev/null && ! docker compose version &> /dev/null; then
+# Check for Docker Compose V2 (docker compose) first, then fallback to V1 (docker-compose)
+if ! docker compose version &> /dev/null && ! command -v docker-compose &> /dev/null; then
     echo -e "${RED}错误: 未找到 Docker Compose${NC}"
     exit 1
 fi

@@ -14,7 +14,7 @@ echo -e "${GREEN}Starting Bell Cloud initialization...${NC}"
 # 1. Check if container is running
 if ! docker ps | grep -q bell-cloud; then
     echo "Container 'bell-cloud' is not running. Starting it..."
-    docker-compose up -d
+    docker compose up -d
     echo "Waiting for service to be ready (may take a few seconds)..."
     sleep 5
 else
