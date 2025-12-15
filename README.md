@@ -14,6 +14,25 @@ Bell Cloud 是 [Bell Memo](https://github.com/yourname/bell-memo) 的官方服�
 
 ## 🚀 快速部署
 
+### 前置要求
+
+- **Docker** 和 **Docker Compose**（V2 推荐）
+- **Docker 权限**：确保当前用户有权限访问 Docker daemon
+
+如果遇到 `permission denied while trying to connect to the Docker daemon socket` 错误，请执行：
+
+```bash
+# 将当前用户添加到 docker 组（推荐）
+sudo usermod -aG docker $USER
+
+# 重新登录或运行以下命令使组权限生效
+newgrp docker
+```
+
+或者使用 `sudo` 运行 Docker 命令（不推荐，但可以临时使用）。
+
+---
+
 ### 方式一：一键安装（推荐）
 
 使用以下命令一键安装并初始化 Bell Cloud：

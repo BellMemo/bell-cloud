@@ -31,7 +31,21 @@ if ! docker compose version &> /dev/null && ! command -v docker-compose &> /dev/
     exit 1
 fi
 
-echo -e "${GREEN}✓ Docker 已安装${NC}"
+# Check Docker permissions
+if ! docker ps &> /dev/null; then
+    echo -e "${RED}错误: 无法连接到 Docker daemon${NC}"
+    echo ""
+    echo "这通常是因为当前用户没有 Docker 权限。解决方法："
+    echo "1. 将当前用户添加到 docker 组（推荐）："
+    echo "   sudo usermod -aG docker $USER"
+    echo "   然后重新登录或运行: newgrp docker"
+    echo ""
+    echo "2. 或者使用 sudo 运行 Docker 命令"
+    echo ""
+    exit 1
+fi
+
+echo -e "${GREEN}✓ Docker 已安装并可用${NC}"
 
 # Create installation directory
 if [ -d "$INSTALL_DIR" ]; then
